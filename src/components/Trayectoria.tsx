@@ -2,13 +2,17 @@
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const HITOS = [
-  { etiqueta: "2014–Presente", dato: "+10 años en entornos militares y organizacionales" },
-  { etiqueta: "Formación", dato: "Comunicación Social, Producción de Contenidos Informativos" },
-  { etiqueta: "Liderazgo", dato: "Coordinación de procesos y dirección de equipos bajo presión" },
-  { etiqueta: "Digital", dato: "IA y transformación digital aplicada a comunicación" },
-  { etiqueta: "Institucional", dato: "Comunicación estratégica, lectura y presentación de informes" },
-  { etiqueta: "Visual", dato: "Fotografía documental y producción de contenidos narrativos" },
+const METRICAS = [
+  { valor: "+10", label: "Años de experiencia" },
+  { valor: "ComSoc", label: "Formación académica" },
+  { valor: "IA", label: "Transformación digital" },
+];
+
+const COMPETENCIAS = [
+  { area: "Liderazgo", detalle: "Coordinación de procesos y dirección de equipos bajo presión" },
+  { area: "Institucional", detalle: "Comunicación estratégica, lectura y presentación de informes" },
+  { area: "Visual", detalle: "Fotografía documental y producción de contenidos narrativos" },
+  { area: "Digital", detalle: "IA y herramientas digitales aplicadas a comunicación" },
 ];
 
 export default function Trayectoria() {
@@ -18,17 +22,10 @@ export default function Trayectoria() {
     <section
       id="trayectoria"
       aria-label="Trayectoria"
-      className="bg-petrol-dark py-28 md:py-36 relative overflow-hidden"
+      className="bg-petrol-dark py-28 md:py-36"
       ref={containerRef}
     >
-      {/* Large background number */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none hidden lg:block">
-        <span className="font-heading text-[20rem] font-bold text-white/[0.02] leading-none tracking-tighter">
-          10+
-        </span>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-8">
         <div className="flex items-center gap-3 mb-6" data-reveal>
           <div className="w-10 h-[2px] bg-olive-light" />
           <span className="text-olive-light text-[11px] font-medium tracking-[0.25em] uppercase">
@@ -37,7 +34,7 @@ export default function Trayectoria() {
         </div>
 
         <h2
-          className="font-heading text-3xl md:text-4xl font-bold text-white leading-[1.08] tracking-tight mb-16 max-w-lg"
+          className="font-heading text-3xl md:text-4xl font-bold text-white leading-[1.08] tracking-tight mb-20 max-w-lg"
           data-reveal
           data-reveal-delay="60"
         >
@@ -46,24 +43,46 @@ export default function Trayectoria() {
           capacidad estrat&eacute;gica
         </h2>
 
-        {/* Data rows — clean, no cards */}
-        <div>
-          {HITOS.map((h, i) => (
+        {/* Top metrics — 3 key numbers, horizontal */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-b border-white/[0.08] mb-16"
+          data-reveal
+          data-reveal-delay="120"
+        >
+          {METRICAS.map((m, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-8 py-6 border-t border-white/[0.06]"
-              data-reveal
-              data-reveal-delay={i * 60}
+              className={`py-8 ${
+                i < METRICAS.length - 1 ? "sm:border-r border-b sm:border-b-0 border-white/[0.08]" : ""
+              } ${i > 0 ? "sm:pl-10" : ""}`}
             >
-              <span className="font-heading text-[13px] font-semibold text-olive-light tracking-tight">
-                {h.etiqueta}
+              <span className="font-heading text-2xl md:text-3xl font-bold text-white tracking-tight block mb-1">
+                {m.valor}
               </span>
-              <p className="text-[15px] text-white/60 leading-relaxed">
-                {h.dato}
+              <span className="text-[13px] text-white/35">
+                {m.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Competencies — clean 2-column list */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24">
+          {COMPETENCIAS.map((c, i) => (
+            <div
+              key={i}
+              className="border-t border-white/[0.06] pt-5 pb-8"
+              data-reveal
+              data-reveal-delay={160 + i * 50}
+            >
+              <span className="font-heading text-[13px] font-semibold text-olive-light tracking-tight block mb-2">
+                {c.area}
+              </span>
+              <p className="text-[15px] text-white/50 leading-relaxed">
+                {c.detalle}
               </p>
             </div>
           ))}
-          <div className="border-t border-white/[0.06]" />
         </div>
       </div>
     </section>

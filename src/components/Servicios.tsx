@@ -4,34 +4,29 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SERVICIOS = [
   {
-    num: "01",
     titulo: "Comunicación institucional",
     descripcion:
-      "Apoyo en procesos comunicativos internos y organizacionales. Desarrollo y transmisión de mensajes claros, organizados y estratégicos.",
+      "Desarrollo y transmisión de mensajes claros, organizados y estratégicos para procesos internos y organizacionales.",
   },
   {
-    num: "02",
     titulo: "Producción de contenidos",
     descripcion:
-      "Creación y estructuración de contenidos informativos con narrativa estratégica. Intención, estructura y propósito en cada pieza.",
+      "Creación y estructuración de contenidos informativos con narrativa estratégica, intención y propósito.",
   },
   {
-    num: "03",
     titulo: "Cobertura fotográfica",
     descripcion:
-      "Registro visual de eventos, actividades y espacios institucionales. Fotografía documental con enfoque humano y contextual.",
+      "Registro visual de eventos, actividades y espacios institucionales. Fotografía documental con enfoque humano.",
   },
   {
-    num: "04",
     titulo: "Gestión estratégica",
     descripcion:
-      "Coordinación de procesos, manejo eficiente de responsabilidades y formación en disciplina, productividad y organización.",
+      "Coordinación de procesos, manejo eficiente de responsabilidades, disciplina, productividad y organización.",
   },
   {
-    num: "05",
     titulo: "Presentación de informes",
     descripcion:
-      "Comunicación oral estructurada para escenarios institucionales. Transmisión clara de datos, análisis y resultados.",
+      "Comunicación oral estructurada para escenarios institucionales. Transmisión clara de datos y resultados.",
   },
 ];
 
@@ -53,40 +48,33 @@ export default function Servicios() {
           </span>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-          <h2
-            className="font-heading text-3xl md:text-4xl font-bold text-petrol-dark leading-[1.08] tracking-tight max-w-md"
-            data-reveal
-            data-reveal-delay="60"
-          >
-            Lo que puedo hacer
-            <br />
-            por tu organizaci&oacute;n
-          </h2>
-          <p
-            className="text-graphite/55 text-sm leading-relaxed max-w-sm"
-            data-reveal
-            data-reveal-delay="100"
-          >
-            Capacidades desarrolladas en la intersecci&oacute;n entre formaci&oacute;n militar,
-            comunicaci&oacute;n acad&eacute;mica y experiencia operativa real.
-          </p>
-        </div>
+        <h2
+          className="font-heading text-3xl md:text-4xl font-bold text-petrol-dark leading-[1.08] tracking-tight mb-20 max-w-md"
+          data-reveal
+          data-reveal-delay="60"
+        >
+          Lo que puedo hacer
+          <br />
+          por tu organizaci&oacute;n
+        </h2>
 
-        {/* Services — horizontal cards that stack on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-0" data-reveal data-reveal-delay="160">
+        {/* 2-column grid, not 5 identical columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24">
           {SERVICIOS.map((s, i) => (
             <div
               key={i}
-              className="group relative border-t-[2px] border-olive/20 hover:border-olive transition-colors duration-400 pt-6 pb-10 md:pr-6 md:last:pr-0"
+              className={`group border-t border-graphite/10 pt-6 pb-10 ${
+                i === SERVICIOS.length - 1 && SERVICIOS.length % 2 !== 0
+                  ? "md:col-span-1"
+                  : ""
+              }`}
+              data-reveal
+              data-reveal-delay={i * 50}
             >
-              <span className="font-heading text-[11px] font-bold text-olive/40 tracking-wide mb-4 block">
-                {s.num}
-              </span>
-              <h3 className="font-heading text-[15px] font-semibold text-petrol-dark tracking-tight mb-3 group-hover:text-olive-dark transition-colors duration-400">
+              <h3 className="font-heading text-[17px] font-semibold text-petrol-dark tracking-tight mb-3 group-hover:text-olive-dark transition-colors duration-300">
                 {s.titulo}
               </h3>
-              <p className="text-[13px] text-graphite/55 leading-relaxed">
+              <p className="text-[14px] text-graphite/50 leading-[1.75] max-w-sm">
                 {s.descripcion}
               </p>
             </div>
