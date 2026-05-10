@@ -38,9 +38,9 @@ export default function Hero() {
             data-reveal-delay="60"
           >
             Donde la disciplina
-            <br className="hidden md:block" />
+            <br className="hidden md:block" />{" "}
             se convierte en
-            <br className="hidden md:block" />
+            <br className="hidden md:block" />{" "}
             <span className="text-olive-light">estrategia.</span>
           </h2>
 

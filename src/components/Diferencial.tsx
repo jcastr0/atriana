@@ -33,9 +33,9 @@ export default function Diferencial() {
             className="font-heading text-[clamp(2.5rem,6vw,5.5rem)] font-bold text-white leading-[1.02] tracking-[-0.02em] mb-8 animate-[fadeUp_0.8s_cubic-bezier(0.25,1,0.5,1)_0.2s_both]"
           >
             No es experiencia
-            <br className="hidden md:block" />
+            <br className="hidden md:block" />{" "}
             militar. Es visi&oacute;n
-            <br className="hidden md:block" />
+            <br className="hidden md:block" />{" "}
             <span className="text-olive-light">estrat&eacute;gica.</span>
           </h1>
 
